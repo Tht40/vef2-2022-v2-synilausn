@@ -18,6 +18,9 @@ CREATE TABLE public.registrations (
 
 CREATE TABLE public.users (
   id serial primary key,
+  name character varying(64) NOT NULL,
   username character varying(64) NOT NULL,
-  password character varying(256) NOT NULL
+  password character varying(256) NOT NULL,
+  admin bit NOT NULL
 );
+
