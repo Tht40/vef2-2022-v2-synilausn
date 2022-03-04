@@ -6,5 +6,6 @@ INSERT INTO registrations (name, comment, event) VALUES ('Forvitinn forritari', 
 INSERT INTO registrations (name, comment, event) VALUES ('Jón Jónsson', null, 1);
 INSERT INTO registrations (name, comment, event) VALUES ('Guðrún Guðrúnar', 'verður vefforritað?', 1);
 
-INSERT INTO users (name, username, password) VALUES ('admin adminsson','admin', '$2a$11$pgj3.zySyFOvIQEpD7W6Aund1Tw.BFarXxgLJxLbrzIv/4Nteisii','1');
+INSERT INTO users (name, username, password, admin) VALUES ('admin adminsson','admin', '$2a$11$pgj3.zySyFOvIQEpD7W6Aund1Tw.BFarXxgLJxLbrzIv/4Nteisii','1');
+INSERT INTO users (name, username, password, admin) VALUES ('user userson','User', '$2a$11$pgj3.zySyFOvIQEpD7W6Aund1Tw.BFarXxgLJxLbrzIv/4Nteisii','0');
 

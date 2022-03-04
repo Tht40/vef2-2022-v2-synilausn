@@ -11,6 +11,8 @@ export async function comparePasswords(password, hash) {
   return false;
 }
 
+
+
 export async function findByUsername(username) {
   const q = 'SELECT * FROM users WHERE username = $1';
 
@@ -27,6 +29,8 @@ export async function findByUsername(username) {
 
   return false;
 }
+
+
 
 export async function findById(id) {
   const q = 'SELECT * FROM users WHERE id = $1';

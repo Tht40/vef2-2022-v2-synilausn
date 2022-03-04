@@ -7,6 +7,7 @@ import passport from './lib/login.js';
 import { isInvalid } from './lib/template-helpers.js';
 import { adminRouter } from './routes/admin-routes.js';
 import { indexRouter } from './routes/index-routes.js';
+import { userRouter } from './routes/user-routes.js';
 
 dotenv.config();
 
@@ -48,14 +49,17 @@ app.locals = {
   isInvalid,
 };
 
+app.use('/user', userRouter);
 app.use('/admin', adminRouter);
 app.use('/', indexRouter);
+
 
 /** Middleware sem sér um 404 villur. */
 app.use((req, res) => {
   const title = 'Síða fannst ekki';
   res.status(404).render('error', { title });
 });
+
 
 /** Middleware sem sér um villumeðhöndlun. */
 // eslint-disable-next-line no-unused-vars

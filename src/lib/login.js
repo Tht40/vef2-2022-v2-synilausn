@@ -10,6 +10,7 @@ import { comparePasswords, findById, findByUsername } from './users.js';
  *
  * @param {string} username Notandanafn til að athuga
  * @param {string} password Lykilorð til að athuga
+ * @param {bit} admin tjékkar hvort isAdmin
  * @param {function} done Fall sem kallað er í með niðurstöðu
  */
 async function strat(username, password, done) {
@@ -20,8 +21,10 @@ async function strat(username, password, done) {
       return done(null, false);
     }
 
+
     // Verður annað hvort notanda hlutur ef lykilorð rétt, eða false
     const result = await comparePasswords(password, user.password);
+
     return done(null, result ? user : false);
   } catch (err) {
     console.error(err);
@@ -45,6 +48,7 @@ passport.deserializeUser(async (id, done) => {
   try {
     const user = await findById(id);
     done(null, user);
+
   } catch (err) {
     done(err);
   }
