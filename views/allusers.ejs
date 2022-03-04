@@ -1,0 +1,35 @@
+<%- include('header') -%>
+
+<section class="events">
+  <h2 class="events__title">Allir notendur</h2>
+  <ul class="events__list">
+    <% for (const user of users) { %>
+      <li class="events__event">
+        <a href="/<%= user.id %>" class="events__eventLink"><%= user.name %></a>
+        <p class="events__eventDescription">Notendanafn: <%= user.username %></p>
+         <% if (admin) { %>
+        <td>
+          <form class="delete-form" method="post" action="/users/delete/<%= user.id %>">
+            <button class="button">Eyða</button>
+          </form>
+        </td>
+      <% } %>
+      </li>
+    <% } %>
+  </ul>
+</section>
+
+
+<div class="link">
+  <p class="user__loggedin">Innskráður sem: <strong><%= username %></strong></p>
+  <p class="user__logout"><a href="/users/logout">Útskrá</a></p>
+</div>
+
+<div class="link">
+    <a class="link__link" href="/">Til baka</a>
+  </div>
+
+
+
+<%- include('footer') -%>
+

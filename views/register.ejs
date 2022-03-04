@@ -2,7 +2,13 @@
 
 <h1>Nýskráning</h1>
 
-<form class="form" method="post" action="/user/register" autocomplete="off">
+<form class="form" method="post" action="/users/register" autocomplete="off">
+
+  <div class="field">
+    <label for="name"=>Nafn</label>
+    <input type="text" name="name" id="name">
+  </div>
+
   <div class="field">
     <label for="username">Notendanafn</label>
     <input type="text" name="username" id="username">
@@ -14,11 +20,17 @@
     <input type="password" name="password" id="password">
   </div>
 
+   <div class="field">
+    <label for="password">Lykilorð aftur</label>
+    <input type="password" name="password2" id="password2">
+  </div>
+
+
   <% if (message) { %>
   <p><%= message %></p>
   <% } %>
 
-  <button class="button">Nýskrá</button>
+  <button class="button" name="submit">Nýskrá</button>
 </form>
 
 <a href="/">Til baka</a>

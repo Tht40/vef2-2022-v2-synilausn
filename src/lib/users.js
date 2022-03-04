@@ -31,6 +31,20 @@ export async function findByUsername(username) {
 }
 
 
+export function checkisAdmin(user) {
+  if (user === '0') {
+    return false;
+  }
+  return true;
+}
+
+/* export function checkisOwner(user) {
+  if( user)
+}
+*/
+
+
+
 
 export async function findById(id) {
   const q = 'SELECT * FROM users WHERE id = $1';
@@ -48,19 +62,19 @@ export async function findById(id) {
   return null;
 }
 
-export async function createUser(username, password) {
+export async function createUser(name, username, password) {
   // Geymum hashað password!
   const hashedPassword = await bcrypt.hash(password, 11);
 
   const q = `
     INSERT INTO
-      users (username, password)
-    VALUES ($1, $2)
+      users (name, username, password, admin)
+    VALUES ($1, $2, $3, $4)
     RETURNING *
   `;
 
   try {
-    const result = await query(q, [username, hashedPassword]);
+    const result = await query(q, [name, username, hashedPassword, 0]);
     return result.rows[0];
   } catch (e) {
     console.error('Gat ekki búið til notanda');

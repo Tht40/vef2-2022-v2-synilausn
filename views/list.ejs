@@ -3,7 +3,7 @@
   <p class="registrations__total">Fjöldi undirskrifta: <%= paging.total %></p>
 
   <% if (false) { %>
-  <form class="form" method="get" action="/admin">
+  <form class="form" method="get" action="/users">
     <div class="field">
       <label for="search">Leit:</label>
       <input type="text" name="search" id="search" value="<%= search %>">
@@ -31,7 +31,7 @@
       <td class="comment"><%= row.comment %></td>
       <% if (admin) { %>
       <td>
-        <form class="delete-form" method="post" action="/admin/delete/<%= row.id %>">
+        <form class="delete-form" method="post" action="/users/delete/<%= row.id %>">
           <button class="button">Eyða</button>
         </form>
       </td>

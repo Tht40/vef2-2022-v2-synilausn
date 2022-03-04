@@ -8,6 +8,7 @@ import {
   xssSanitizationMiddleware
 } from '../lib/validation.js';
 
+
 export const indexRouter = express.Router();
 
 async function indexRoute(req, res) {
@@ -19,6 +20,7 @@ async function indexRoute(req, res) {
     events,
   });
 }
+
 
 async function eventRoute(req, res, next) {
   const { slug } = req.params;
@@ -75,6 +77,10 @@ async function validationCheck(req, res, next) {
 
   return next();
 }
+/*
+async function newUserRoute(req,res){
+return next();
+} */
 
 async function registerRoute(req, res) {
   const { name, comment } = req.body;
@@ -94,8 +100,10 @@ async function registerRoute(req, res) {
   return res.render('error');
 }
 
+
 indexRouter.get('/', catchErrors(indexRoute));
 indexRouter.get('/:slug', catchErrors(eventRoute));
+
 indexRouter.post(
   '/:slug',
   registrationValidationMiddleware('comment'),

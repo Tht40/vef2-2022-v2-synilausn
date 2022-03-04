@@ -6,7 +6,7 @@
         <a href="/<%= event.slug %>" class="events__eventLink"><%= event.name %></a>
         <p class="events__eventDescription"><%= event.description %></p>
         <% if (admin) { %>
-          <p><a href="/admin/<%= event.slug %>" class="events__eventEdit">Uppfæra viðburð</a>
+          <p><a href="/users/<%= event.slug %>" class="events__eventEdit">Uppfæra viðburð</a>
         <% } %>
       </li>
     <% } %>

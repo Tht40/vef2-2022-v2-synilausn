@@ -5,9 +5,8 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import passport from './lib/login.js';
 import { isInvalid } from './lib/template-helpers.js';
-import { adminRouter } from './routes/admin-routes.js';
 import { indexRouter } from './routes/index-routes.js';
-import { userRouter } from './routes/user-routes.js';
+import { usersRouter } from './routes/users-routes.js';
 
 dotenv.config();
 
@@ -49,8 +48,7 @@ app.locals = {
   isInvalid,
 };
 
-app.use('/user', userRouter);
-app.use('/admin', adminRouter);
+app.use('/users', usersRouter);
 app.use('/', indexRouter);
 
 

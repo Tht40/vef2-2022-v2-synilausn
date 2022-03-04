@@ -134,6 +134,24 @@ export async function listEvents() {
   return null;
 }
 
+export async function listUsers() {
+  const q = `
+    SELECT
+     name, username, id
+    FROM
+      users
+  `;
+
+  const result = await query(q);
+
+  if (result) {
+    return result.rows;
+  }
+
+  return null;
+}
+
+
 export async function listEvent(slug) {
   const q = `
     SELECT
