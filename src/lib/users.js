@@ -74,7 +74,7 @@ export async function createUser(name, username, password) {
   `;
 
   try {
-    const result = await query(q, [name, username, hashedPassword, 1]);
+    const result = await query(q, [name, username, hashedPassword, 0]);
     return result.rows[0];
   } catch (e) {
     console.error('Gat ekki búið til notanda');
